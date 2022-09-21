@@ -16,11 +16,11 @@ class MyHomePage extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
+              children:[
                 Padding(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Transform.translate(
-                    offset: const Offset(0, 9),
+                    offset: const Offset(0, 10),
                     child: AnimatedContainer(
                       width: kDefaultWidth,
                       height: kDefaultHeight,
@@ -55,6 +55,7 @@ class MyHomePage extends StatelessWidget {
                                   minimumSize: const Size(150, 50)),
                               onPressed: () {
                                 controller.showToast();
+                                controller.update();
                               },
                               child: const Text(
                                 "Popup Toast",
