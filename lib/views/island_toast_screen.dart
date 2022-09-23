@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import '../constants.dart';
 import '../controllers/toast_controller.dart';
 
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
   @override
@@ -16,29 +15,50 @@ class MyHomePage extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children:[
+              children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Transform.translate(
                     offset: const Offset(0, 10),
-                    child: AnimatedContainer(
-                      width: kDefaultWidth,
-                      height: kDefaultHeight,
-                      decoration: BoxDecoration(
-                        color: controller.color,
-                        borderRadius: controller.borderRadius,
-                      ),
-                      duration: const Duration(seconds: 1),
-                      curve: Curves.fastOutSlowIn,
-                      child: Row(
-                        children: [
-                          Expanded(
-                              child:
-                                  controller.toastContent ?? const SizedBox.shrink())
-                        ],
-                      ),
+                    child: Stack(
+                      children: [
+                        AnimatedContainer(
+                          width: kDefaultWidth,
+                          height: kDefaultHeight,
+                          decoration: BoxDecoration(
+                            color: controller.color,
+                            borderRadius: controller.borderRadius,
+                          ),
+                          duration: const Duration(seconds: 1),
+                          curve: Curves.fastOutSlowIn,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                  child: controller.toastContent ??
+                                      const SizedBox.shrink())
+                            ],
+                          ),
+                        ),
+                        controller.toastContent != null
+                            ? const SizedBox.shrink()
+                            : Positioned(
+                                right: 10,
+                                top: 5,
+                                child: Container(
+                                  height: 10,
+                                  width: 10,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white24,
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                              )
+                      ],
                     ),
                   ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Expanded(
                     child: Padding(

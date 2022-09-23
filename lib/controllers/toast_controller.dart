@@ -9,7 +9,7 @@ class ToastController extends GetxController {
   bool isDismissed = false;
 
   void dismissToast() {
-    kDefaultWidth = 20;
+    kDefaultWidth = 70;
     kDefaultHeight = 20;
     toastContent = null;
     update();
