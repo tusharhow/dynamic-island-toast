@@ -20,40 +20,22 @@ class MyHomePage extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Transform.translate(
                     offset: const Offset(0, 10),
-                    child: Stack(
-                      children: [
-                        AnimatedContainer(
-                          width: kDefaultWidth,
-                          height: kDefaultHeight,
-                          decoration: BoxDecoration(
-                            color: controller.color,
-                            borderRadius: controller.borderRadius,
-                          ),
-                          duration: const Duration(seconds: 1),
-                          curve: Curves.fastOutSlowIn,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                  child: controller.toastContent ??
-                                      const SizedBox.shrink())
-                            ],
-                          ),
-                        ),
-                        controller.toastContent != null
-                            ? const SizedBox.shrink()
-                            : Positioned(
-                                right: 10,
-                                top: 5,
-                                child: Container(
-                                  height: 10,
-                                  width: 10,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white24,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
-                              )
-                      ],
+                    child: AnimatedContainer(
+                      width: kDefaultWidth,
+                      height: kDefaultHeight,
+                      decoration: BoxDecoration(
+                        color: controller.color,
+                        borderRadius: controller.borderRadius,
+                      ),
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.fastOutSlowIn,
+                      child: Row(
+                        children: [
+                          Expanded(
+                              child: controller.toastContent ??
+                                  const SizedBox.shrink())
+                        ],
+                      ),
                     ),
                   ),
                 ),

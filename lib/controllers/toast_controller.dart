@@ -5,12 +5,12 @@ import '../constants.dart';
 class ToastController extends GetxController {
   Widget? toastContent;
   final Color color = Colors.black;
-  final BorderRadiusGeometry borderRadius = BorderRadius.circular(15);
+  final BorderRadiusGeometry borderRadius = BorderRadius.circular(30);
   bool isDismissed = false;
 
   void dismissToast() {
-    kDefaultWidth = 70;
-    kDefaultHeight = 20;
+    kDefaultWidth = 110;
+    kDefaultHeight = 33;
     toastContent = null;
     update();
   }
